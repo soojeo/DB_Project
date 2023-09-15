@@ -7,7 +7,8 @@
 하며 이를 시간표나 학기 별 성적 추이그래프와 성적 분포그래프를 통해 사용자의 사용 목적에
 따라 보여주는 기능도 추가로 구현했다
 + 로그인 및 회원가입
-https://github.com/soojeo/DB_Project/blob/main/db_project/1.PNG
++ ![1](https://github.com/soojeo/DB_Project/assets/37549420/75274b52-bf0a-4146-8374-e0b64c1a4724)
+
 + 주요 기능
   
 + 특별 기능
