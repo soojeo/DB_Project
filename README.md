@@ -7,7 +7,10 @@
 하며 이를 시간표나 학기 별 성적 추이그래프와 성적 분포그래프를 통해 사용자의 사용 목적에
 따라 보여주는 기능도 추가로 구현했다
 + 사용자 테이블
-  
+  (1)applist
+  ![1](https://github.com/soojeo/DB_Project/assets/37549420/4bcaedb4-fe36-47f6-ad3d-f28f41bd3e6e)
+
+  (2)
 + 주요 기능
   
 + 특별 기능
