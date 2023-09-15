@@ -13,18 +13,18 @@
 밀 번호를 입력하면 로그인 실패라는 메시지가 뜨도록 했다. 회원으로 등록된 학생이 로그인을
 하면 아래의 이미지와 같이 화면이 나타난다. 이때 확인을 클릭하면 바로 시스템의 공지사항 화
 면으로 url이 넘어간다.  
-![sign1](https://github.com/soojeo/DB_Project/assets/37549420/5a34c80c-9580-4bb3-adb8-4fdd860fbc96)
-회원가입 정보를 입력하고 아래의 초록색 회원가입 버튼을 클릭하면 회원가입이 완료된다. 회원
+![sign1](https://github.com/soojeo/DB_Project/assets/37549420/5a34c80c-9580-4bb3-adb8-4fdd860fbc96)  
+회원가입 정보를 입력하고 아래의 초록색 회원가입 버튼을 클릭하면 회원가입이 완료된다. 회원 
 가입 된 학생의 데이터는 테이블은 “create_stu에 삽입된다. 회원가입을 클릭하면 화면은 다시 맨
 처음 로그인 화면인 홈 화면으로 이동한다.  
 
 + 공지사항  
-![notice](https://github.com/soojeo/DB_Project/assets/37549420/ad13ea09-10c0-4cb9-9be0-5befc95be04b)
+![notice](https://github.com/soojeo/DB_Project/assets/37549420/ad13ea09-10c0-4cb9-9be0-5befc95be04b)  
 MySQL의 “notice” 테이블에 저장된 데이터를 출력하는 공지사항 페이지이다. 과목 별로 공지사항
 의 출력이 이루어지도록 구현했다. 학생의 신청한 과목 중 공지사항이 있는 과목은 과목 목록에
 출력된다. 추가로, 페이지 왼쪽에 있는 메뉴 목록에서 버튼을 클릭해도 페이지가 이동된다  
-![notice2](https://github.com/soojeo/DB_Project/assets/37549420/5e08fa34-1990-448a-b92a-a361d1f04f0e)
-![notice3](https://github.com/soojeo/DB_Project/assets/37549420/201a41af-85af-4185-bd72-239c44b92b6c)
+![notice2](https://github.com/soojeo/DB_Project/assets/37549420/5e08fa34-1990-448a-b92a-a361d1f04f0e)  
+![notice3](https://github.com/soojeo/DB_Project/assets/37549420/201a41af-85af-4185-bd72-239c44b92b6c)  
 해당 과목을 클릭하면 과목 별로 저장된 공지사항이 출력된다. 그리고 각각의 공지의 제목을 클
 릭하면 아래의 이미지처럼 공지 사항의 내용을 확인할 수 있다  
   
