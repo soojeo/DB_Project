@@ -28,6 +28,21 @@ MySQL의 “notice” 테이블에 저장된 데이터를 출력하는 공지사
 해당 과목을 클릭하면 과목 별로 저장된 공지사항이 출력된다. 그리고 각각의 공지의 제목을 클
 릭하면 아래의 이미지처럼 공지 사항의 내용을 확인할 수 있다  
   
-+ 특별 기능
-  
++ 수강신청  
+![apply1](https://github.com/soojeo/DB_Project/assets/37549420/926b7b49-0bf5-426a-8ab1-3de7b9b1d0d8)  
+![apply2](https://github.com/soojeo/DB_Project/assets/37549420/099a43f4-ce8c-48d6-9cc5-5d36f7994468)  
+![apply3](https://github.com/soojeo/DB_Project/assets/37549420/2e482449-e253-4feb-91a9-e764fce3807c)  
+과목별 정보를 해당 화면에 lectureVO를 값을 나열하여 출력하였고, 신청할 과목을 클릭하면 과
+목의 정보들을 일련 출력한다. 수강신청 버튼을 누르면 학번인 student.id, 그리고 MySQL의
+“applist” 테이블에 필요한 lectureVO의 데이터들을 보내 “applist” 테이블에 추가된다. 학점과 학
+기는 배제된 체로 신청하여 넣고, 이는 담은 인원이 정원을 넘지 않을 때에만 기능한다. 취소에는
+lectureVO의 sno, 즉 과목 번호만 전달하여 “applist” 테이블의 sno에 해당하는 tuple을 제거한다. 
+신청과 취소 시 각자 수강 신청 처리 상태를 표시하는 창을 통해 확인 가능하다  
+
++ 개인정보조회  
+![info](https://github.com/soojeo/DB_Project/assets/37549420/041767d6-f983-4594-9035-14aaf2ec9aba)  
+학생이 처음 회원가입을 할 때 입력했던 정보를 보여주는 개인 정보 조회 페이지이다. 이름, 학번,
+학부, 그리고 이메일 주소가 출력된다. 해당 데이터는 MySQL의 “create_stu” 테이블에서 불러온다.  
+
+
   
