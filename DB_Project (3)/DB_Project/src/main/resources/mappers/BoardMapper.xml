@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwce.mapper.BoardMapper">
+	<insert id="create">
+	INSERT
+	  INTO notice
+		 ( title,
+		   con,
+		   snum,
+		   professor,
+		   writer)
+	VALUES
+		 ( #{title},
+		   #{con},
+		   #{snum},
+		   #{professor},
+		   #{writer} )
+	</insert>
+	
+	<select id="read" resultType="com.kwce.domain.BoardVO">
+	SELECT
+		   bno,
+		   title,
+		   con,
+		   snum,
+		   professor,
+		   writer
+	  FROM notice
+	 WHERE bno = #{bno}
+	</select>
+	
+
+	<update id="updateViewCnt">
+    UPDATE notice
+         SET views = views + 1 
+    WHERE bno = #{bno}
+	</update>
+	
+
+	
+	<update id="update">
+	UPDATE notice
+		SET title =#{title},
+			con =#{con},
+			snum = #{snum},
+			professor = #{professor},
+			writer = #{writer},
+			ndate= now()
+		WHERE bno = #{bno}
+	</update>
+	
+	
+	<delete id="delete">
+	DELETE
+	 FROM notice
+	WHERE bno = #{bno}
+	</delete>
+	
+	<select id="listAll" resultType="com.kwce.domain.BoardVO">
+	<![CDATA[
+	SELECT
+		   title,
+		   con,
+		   snum,
+		   professor,
+		   writer,
+		   ndate,
+		   views
+	  FROM notice
+	]]>
+	</select>
+	
+	<select id="listPage" resultType="com.kwce.domain.BoardVO">
+	<![CDATA[
+	SELECT
+		   bno,
+		   title,
+		   con,
+		   snum,
+		   professor,
+		   writer,
+		   ndate,
+		   views
+	  FROM notice
+	 ORDER BY bno DESC, ndate DESC 
+	 LIMIT #{page}, 10
+	]]>
+	</select>
+	<select id="listCriteria" resultType="com.kwce.domain.BoardVO">
+	<![CDATA[
+		SELECT bno,
+			   title,
+			   con,
+			   snum,
+			   professor,
+			   writer,
+			   ndate,
+			   views
+		FROM notice 
+	ORDER BY  bno DESC, ndate DESC
+	LIMIT #{pageStart}, #{perPageNum}
+	]]>  
+	</select>
+	
+	
+	
+	
+	<select id="countPaging" resultType="int">
+	<![CDATA[
+	SELECT 
+		count(bno) 
+	FROM 
+		notice 
+	WHERE bno>0
+	]]>
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%') OR content like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like CONCAT('%', #{keyword}, '%') OR writer like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%')
+				OR
+				content like CONCAT('%', #{keyword}, '%')
+				OR
+				writer like CONCAT('%', #{keyword}, '%'))
+			</if>
+		</if>
+	</sql>
+	<select id="listSearch" resultType="com.kwce.domain.BoardVO">
+	<![CDATA[  
+	 SELECT 
+	 	notice.bno,
+   		notice.title,
+   		notice.writer,
+   		notice.snum,
+   		notice.professor,
+   		notice.ndate,
+   		notice.views
+   		
+   	FROM create_stu
+   		JOIN student
+       	ON create_stu.id=student.id
+       		JOIN notice
+           	ON INSTR(student.app_list,notice.snum)>0
+           	AND student.id=#{id}
+           	AND notice.snum=#{snum}
+	]]>
+		<include refid="search"></include>
+	<![CDATA[
+	  order by ndate desc
+	  limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+		
+	<select id="noticelist" resultType="com.kwce.domain.SubjectVO">
+	<![CDATA[
+	SELECT 
+         distinct subj.sno, subj.sname
+         
+      FROM create_stu
+         JOIN student
+          ON create_stu.id=student.id
+             JOIN notice
+              ON INSTR(student.app_list,notice.snum)>0
+              AND student.id=#{id}
+                 join subj
+                    on notice.snum = subj.sno
+	]]>
+	</select>
+	
+	
+	<select id="listSearchCount" resultType="int">
+	<![CDATA[  
+	  select count(title)
+	  from notice
+	  where bno>0
+	]]>
+		<include refid="search"></include>
+	</select>
+	
+</mapper>

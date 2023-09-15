@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="MemberMapper">
+   <!-- 회원가입 -->
+   <insert id="register">
+    INSERT INTO create_stu( 
+    stuname
+    ,id
+    ,department
+    ,pass
+    ,email)
+    
+    VALUES(   
+     #{stuname} 
+    ,#{id}
+    ,#{department}
+    ,#{pass}
+    ,#{email})
+    
+   </insert>
+   
+   <!-- 로그인 -->
+   <select id="login" resultType="com.kwce.domain.StudentVO">
+   SELECT id, stuname,email,department 
+   	FROM create_stu
+    WHERE id = #{id}
+    AND pass = #{pass}   
+   </select>
+   
+</mapper>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwce.mapper.ScheduleMapper">
+	<insert id="create">
+	INSERT
+	  INTO student
+	(
+		stuname
+		,id
+	 	,major
+	 	,credits
+	 	,semester
+	 	,app_list
+	 	,grade
+	)
+	VALUES
+	(
+		#{stuname}
+		,#{id}
+		,#{major}
+		,#{credits}
+		,#{semester}
+		,#{app_list}
+		,#{grade}
+	)
+	</insert>
+	<select id="listsearch" resultType="com.kwce.domain.SubjectVO">
+	<![CDATA[  
+	select subj.sname, stime
+	from student
+		inner join applist
+    	on student.id = applist.id
+			inner join subj
+        	on applist.subj = subj.sno
+           	AND applist.id=#{id}
+           	
+	]]>
+	</select>
+	
+	<select id="userinfo" resultType="com.kwce.domain.ApplistVO">
+	<![CDATA[  
+	   select sum(grade*credits)/sum(credits) as rate
+	   from applist
+	   where id = #{id} 
+	   group by sem
+	  
+	]]>
+	</select>
+	<select id="major" resultType="com.kwce.domain.ApplistVO">
+	<![CDATA[  
+	   select sum(grade*credits)/sum(credits) as major_rate
+	   from applist
+	   where id = #{id} and major = 1
+	   group by sem
+	  
+	]]>
+	</select>
+	<select id="culture" resultType="com.kwce.domain.ApplistVO">
+	<![CDATA[  
+	   select sum(grade*credits)/sum(credits) as culture_rate
+	   from applist
+	   where id = #{id} and major =0
+	   group by sem
+	  
+	]]>
+	</select>
+
+	<select id="info" resultType="com.kwce.domain.StudentVO">
+	<![CDATA[  
+	select *
+	from create_stu
+	
+	]]>
+	</select>
+	
+	
+</mapper>

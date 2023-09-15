@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwce.mapper.AskMapper">
+<insert id="askcreate">
+	INSERT
+	  INTO ask
+		 ( stuname,
+		   professor,
+		   ndate,
+		   title,
+		   con)
+	VALUES
+		 ( #{stuname},
+		   #{professor},
+		   #{ndate},
+		   #{title},
+		   #{con} )
+	</insert>
+	
+	<select id="asklistAll" resultType="com.kwce.domain.AskVO">
+	<![CDATA[
+	SELECT
+		   stuname,
+		   professor,
+		   ndate,
+		   title
+	  FROM ask
+	]]>
+	</select>
+</mapper>
