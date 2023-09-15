@@ -17,7 +17,7 @@
 회원가입 정보를 입력하고 아래의 초록색 회원가입 버튼을 클릭하면 회원가입이 완료된다. 회원 
 가입 된 학생의 데이터는 테이블은 “create_stu에 삽입된다. 회원가입을 클릭하면 화면은 다시 맨
 처음 로그인 화면인 홈 화면으로 이동한다.  
-
+  
 + 공지사항  
 ![notice](https://github.com/soojeo/DB_Project/assets/37549420/ad13ea09-10c0-4cb9-9be0-5befc95be04b)  
 MySQL의 “notice” 테이블에 저장된 데이터를 출력하는 공지사항 페이지이다. 과목 별로 공지사항
@@ -27,7 +27,7 @@ MySQL의 “notice” 테이블에 저장된 데이터를 출력하는 공지사
 ![notice3](https://github.com/soojeo/DB_Project/assets/37549420/201a41af-85af-4185-bd72-239c44b92b6c)  
 해당 과목을 클릭하면 과목 별로 저장된 공지사항이 출력된다. 그리고 각각의 공지의 제목을 클
 릭하면 아래의 이미지처럼 공지 사항의 내용을 확인할 수 있다  
-  
+    
 + 수강신청  
 ![apply1](https://github.com/soojeo/DB_Project/assets/37549420/926b7b49-0bf5-426a-8ab1-3de7b9b1d0d8)  
 ![apply2](https://github.com/soojeo/DB_Project/assets/37549420/099a43f4-ce8c-48d6-9cc5-5d36f7994468)  
@@ -38,7 +38,7 @@ MySQL의 “notice” 테이블에 저장된 데이터를 출력하는 공지사
 기는 배제된 체로 신청하여 넣고, 이는 담은 인원이 정원을 넘지 않을 때에만 기능한다. 취소에는
 lectureVO의 sno, 즉 과목 번호만 전달하여 “applist” 테이블의 sno에 해당하는 tuple을 제거한다. 
 신청과 취소 시 각자 수강 신청 처리 상태를 표시하는 창을 통해 확인 가능하다  
-
+     
 + 개인정보조회  
 ![info](https://github.com/soojeo/DB_Project/assets/37549420/041767d6-f983-4594-9035-14aaf2ec9aba)  
 학생이 처음 회원가입을 할 때 입력했던 정보를 보여주는 개인 정보 조회 페이지이다. 이름, 학번,
